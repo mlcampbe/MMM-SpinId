@@ -1,6 +1,6 @@
 # Module: MMM-SpinId
 
-This [MagicMirror](https://github.com/MichMich/MagicMirror) modules, shows latest winning Wheel of Fortune spin ID numbers.
+This [MagicMirror](https://github.com/MichMich/MagicMirror) modules, shows latest winning Wheel of Fortune spin ID numbers. If your spin ID happens to be a winner then it will be highlighted for you.
 
 ![Magic-Mirror Module MMM-SpinId screenshot](https://raw.githubusercontent.com/mlcampbe/MMM-SpinId/main/screenshot.png)
 
@@ -11,6 +11,7 @@ Tested with:
 - An installation of [MagicMirror<sup>2</sup>](https://github.com/MichMich/MagicMirror)
 - npm
 - OS level utilities curl, cut, awk, grep, etc...
+- Uses data provided by www.wheeloffortunesolutions.com thus requires that the website have current data
 
 ## Installation
 
