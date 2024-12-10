@@ -1,0 +1,9 @@
+{
+  "name": "MMM-SpinId",
+  "version": "1.0.0",
+  "description": "A MagicMirror module to display the latest Wheel of Fortune SpinID Winners", 
+  "author": "Mike Campbell",
+  "license": "MIT",
+  "main": "MMM-SpinId.js"
+}
+
