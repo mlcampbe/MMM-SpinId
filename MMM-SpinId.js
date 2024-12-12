@@ -3,6 +3,7 @@ Module.register("MMM-SpinId", {
     updateInterval: 43200000,  // Run the command every 12 hours
     mySpinId: "XXXXX",
     winningColor: "red",
+    displayStyle: "string", // "string" for 1-liner, "list" for bullet points
   },
 
   start: function() {
@@ -28,7 +29,12 @@ Module.register("MMM-SpinId", {
       } else if (id3.includes(this.config.mySpinId)) {
         id3 = "<font color=" + this.config.winningColor + ">" + id3 + "</font>";
       };
-      this.output = payload.date + "<ul style='margin-top:0px;'><li>" + id1 + "</li><li>" + id2 + "</li><li>" + id3 + "</li></ul>";
+      if (this.config.displayStyle === "list" ) {
+        this.output = payload.date + "<ul style='margin-top:0px;'><li>" + id1 + "</li><li>" + id2 + "</li><li>" + id3 + "</li></ul>";
+      } else {
+        this.output = payload.date + "<br>" + id1 + ", " + id2 + ", " + id3;
+      };
+console.log("==================================" + this.output);
       this.updateDom();
     }
   },
