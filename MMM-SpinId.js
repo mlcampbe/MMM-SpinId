@@ -34,7 +34,6 @@ Module.register("MMM-SpinId", {
       } else {
         this.output = payload.date + "<br>" + id1 + ", " + id2 + ", " + id3;
       };
-console.log("==================================" + this.output);
       this.updateDom();
     }
   },
