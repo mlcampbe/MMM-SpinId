@@ -3,7 +3,7 @@ Module.register("MMM-SpinId", {
     updateInterval: 43200000,  // Run the command every 12 hours
     mySpinId: "XXXXX",
     winningColor: "red",
-    displayStyle: "string", // "string" for 1-liner, "list" for bullet points
+    displayStyle: "line", // "line" for 1-liner, "list" for bullet points
   },
 
   start: function() {
