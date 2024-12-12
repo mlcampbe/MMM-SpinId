@@ -1,7 +1,7 @@
 Module.register("MMM-SpinId", {
   defaults: {
     updateInterval: 43200000,  // Run the command every 12 hours
-    mySpinId: "XXXXXX",
+    mySpinId: "XXXXX",
     winningColor: "red",
   },
 
@@ -24,29 +24,30 @@ Module.register("MMM-SpinId", {
   socketNotificationReceived: function(notification, payload) {
     if (notification === 'COMMAND_OUTPUT') {
       this.output = payload.spinIds;
-      const [id1, id2, id3] = this.output.split(',');
+      var [id1, id2, id3] = this.output.split(',');
       if (id1.includes(this.config.mySpinId)) {
-        idStr = "<font color=" + this.config.winningColor + ">" + id1 + "</font><br>" + id2 + "<br>" + id3;
+        id1 = "<font color=" + this.config.winningColor + ">" + id1 + "</font>";
       } else if (id2.includes(this.config.mySpinId)) {
-        idStr = id1 + "<br><font color=" + this.config.winningColor + ">" + id2 + "</font><br>" + id3;
+        id2 = "<font color=" + this.config.winningColor + ">" + id2 + "</font>";
       } else if (id3.includes(this.config.mySpinId)) {
-        idStr = id1 + "<br>" + id2 + "<br><font color=" + this.config.winningColor + ">" + id3 + "</font>";
-      } else {
-        idStr = id1 + "<br>" + id2 + "<br>" + id3;
+        id3 = "<font color=" + this.config.winningColor + ">" + id3 + "</font>";
       };
-      this.output = idStr;
-      this.date = "Wheel of Fortune SpinIDs for " + payload.date;
+      this.output = payload.date + "<ul style='margin-top:0px;'><li>" + id1 + "</li><li>" + id2 + "</li><li>" + id3 + "</li></ul>";
+      this.date = "Wheel of Fortune Spin-IDs";
       this.updateDom();
     }
   },
 
   getDom: function() {
-    var wrapper = document.createElement("div");
+    const wrapper = document.createElement("div");
+    const wof = document.createElement("div");
+    wof.className = "bright";
     if (this.output) {
-      wrapper.innerHTML = this.output;
+      wof.innerHTML = this.output;
     } else {
-      wrapper.innerHTML = "Waiting for command output...";
+      wof.innerHTML = "Waiting for command output...";
     }
+    wrapper.appendChild(wof);
     return wrapper;
   }
 });
