@@ -47,6 +47,7 @@ modules: [
 		module: 'MMM-SpinId',
 		position: 'top_center', // This can be any of the regions.
 		config: {
+                        header: "Wheel of Fortune Spin-IDs",
 			updateInterval: 43200000, // every 12 hours
 			mySpinId: " MCxxxxxx", // your WOF spin id
 			winningColor: 'red', // color to use if you win
