@@ -13,8 +13,8 @@ Module.register("MMM-SpinId", {
     }, this.config.updateInterval);
   },
 
-  getHeader: function() {
-    return this.date;
+  getStyles: function() {
+    return ["font-awesome.css"];
   },
 
   getCommandOutput: function() {
@@ -33,7 +33,6 @@ Module.register("MMM-SpinId", {
         id3 = "<font color=" + this.config.winningColor + ">" + id3 + "</font>";
       };
       this.output = payload.date + "<ul style='margin-top:0px;'><li>" + id1 + "</li><li>" + id2 + "</li><li>" + id3 + "</li></ul>";
-      this.date = "Wheel of Fortune Spin-IDs";
       this.updateDom();
     }
   },
