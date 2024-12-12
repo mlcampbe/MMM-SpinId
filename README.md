@@ -87,6 +87,13 @@ The following properties can be configured:
 				<br><b>Default value:</b> <code>red</code>
 			</td>
 		</tr>
+		<tr>
+			<td><code>displayStyle</code></td>
+			<td>Display the output in a single line or as bullet points.
+				<br><b>Possible values:</b> <code>line or list</code>
+				<br><b>Default value:</b> <code>line</code>
+			</td>
+		</tr>
 	</tbody>
 </table>
 
