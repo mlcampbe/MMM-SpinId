@@ -13,10 +13,6 @@ Module.register("MMM-SpinId", {
     }, this.config.updateInterval);
   },
 
-  getStyles: function() {
-    return ["font-awesome.css"];
-  },
-
   getCommandOutput: function() {
     this.sendSocketNotification('RUN_COMMAND');
   },
