@@ -46,10 +46,10 @@ modules: [
 	{
 		module: 'MMM-SpinId',
 		position: 'top_center', // This can be any of the regions.
+                header: "Wheel of Fortune Spin-ID",
 		config: {
-                        header: "Wheel of Fortune Spin-IDs",
 			updateInterval: 43200000, // every 12 hours
-			mySpinId: " MCxxxxxx", // your WOF spin id
+			mySpinId: "MCxxxxxx", // your WOF spin id
 			winningColor: 'red', // color to use if you win
 		},
 	},
@@ -87,12 +87,6 @@ The following properties can be configured:
 				<br><b>Default value:</b> <code>red</code>
 			</td>
 		</tr>
-		<tr>
-			<td><code>displayStyle</code></td>
-			<td>Display the output in a single line or as bullet points.
-				<br><b>Possible values:</b> <code>line or list</code>
-				<br><b>Default value:</b> <code>line</code>
-			</td>
 		</tr>
 	</tbody>
 </table>

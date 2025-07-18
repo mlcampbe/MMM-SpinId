@@ -14,7 +14,7 @@ module.exports = NodeHelper.create({
 
   runCommand: function() {
     command = "curl -s  http://www.wheeloffortunesolutions.com/spinid.html|grep -i 'meta name=\"date\"' |  cut -d= -f3 | tr -d '\">/'";
-    command = command + "&&" + "curl -s  http://www.wheeloffortunesolutions.com/spinid.html|grep -i TableSpinID |  sed 's/<[^>]*>//g' |  awk '{$1=$1};1' | grep -v '^[[:space:]]*$' | head -3 | tr  '\r\n' ',' | sed -r 's/[,,]+/,/g'";
+    command = command + "&&" + "curl -s  http://www.wheeloffortunesolutions.com/spinid.html|sed '/-- Secret Santa/,$d' | grep -i TableSpinID |  sed 's/<[^>]*>//g' |  awk '{$1=$1};1'";
 
     exec(command, (error, stdout, stderr) => {
       if (error) {

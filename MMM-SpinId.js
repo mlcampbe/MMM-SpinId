@@ -20,20 +20,12 @@ Module.register("MMM-SpinId", {
 
   socketNotificationReceived: function(notification, payload) {
     if (notification === 'COMMAND_OUTPUT') {
-      this.output = payload.spinIds;
-      var [id1, id2, id3] = this.output.split(',');
-      if (id1.includes(this.config.mySpinId)) {
-        id1 = "<font color=" + this.config.winningColor + ">" + id1 + "</font>";
-      } else if (id2.includes(this.config.mySpinId)) {
-        id2 = "<font color=" + this.config.winningColor + ">" + id2 + "</font>";
-      } else if (id3.includes(this.config.mySpinId)) {
-        id3 = "<font color=" + this.config.winningColor + ">" + id3 + "</font>";
-      };
-      if (this.config.displayStyle === "list" ) {
-        this.output = payload.date + "<ul style='margin-top:0px;'><li>" + id1 + "</li><li>" + id2 + "</li><li>" + id3 + "</li></ul>";
+      if (payload.spinIds.includes(this.config.mySpinId)) {
+        id = "<font color=" + this.config.winningColor + ">" + payload.spinIds + "</font>";
       } else {
-        this.output = payload.date + "<br>" + id1 + ", " + id2 + ", " + id3;
-      };
+        id = payload.spinIds;
+      }
+      this.output = payload.date + "<br>" + id;
       this.updateDom();
     }
   },
